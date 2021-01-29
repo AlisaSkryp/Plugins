@@ -20,15 +20,15 @@ customFunction.getCatalogs = function () {
   customFunction.handleAction = function (item) {
     var deepLink = item.deepLink.replace(/\"/g, '%22');
     if (item.action == 'navigation') {
-      return `customHeader.navigation('${deepLink}')`;
+      return `customFunction.navigation('${deepLink}')`;
     } else if (item.action == 'setUUIDandNav') {
-      return `customHeader.setUUIDandNav('${item.catalog}','${item.transaction}','${deepLink}')`;
+      return `customFunction.setUUIDandNav('${item.catalog}','${item.transaction}','${deepLink}')`;
     } else if (item.action == 'openInNewTab') {
-      return `customHeader.openInNewTab('${deepLink}')`;
+      return `customFunction.openInNewTab('${deepLink}')`;
     } else if (item.action == 'createNewActivity') {
-      return `customHeader.createNewActivity('${item.activity}','${deepLink}')`;
+      return `customFunction.createNewActivity('${item.activity}','${deepLink}')`;
     } else if (item.action == 'createNewTransaction') {
-      return `customHeader.createNewOrder('${item.catalog}','${item.transaction}','${deepLink}',true)`;
+      return `customFunction.createNewOrder('${item.catalog}','${item.transaction}','${deepLink}',true)`;
     } else if (item.action == 'zendesk') {
       return `location.href = 'javascript:$zopim.livechat.window.show()'`;
     }
@@ -49,6 +49,7 @@ customFunction.getCatalogs = function () {
     } else {
       window.fireEvent("on" + event.eventType, event);
     }
+    window.location.href = path;
   };
 
   customFunction.setUUIDandNav = function (in_catalog = null, in_transactionName = null, deepLink = null) {
@@ -104,7 +105,7 @@ customFunction.getCatalogs = function () {
       }
     }
   };
-  this.closeAllMenusListener = function () {
+  customFunction.closeAllMenusListener = function () {
     $('#select-menu').attr('tabindex', '-1');
     $('#select-menu').on('focusout', function () {
       $('#select-menu').removeClass('show');
