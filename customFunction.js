@@ -4,18 +4,7 @@ customFunction.catalogs;
 customFunction.transactionName = Transaction
 customFunction.catalogName = Catalog
 
-customFunction.getCatalogs = function () {
-    pepperi.api.catalogs.search({
-      fields: ["UUID", "ExternalID", "Description", "ID"],
-      responseCallback: 'customHomepage.getCatalogsCallback'
-    });
-  }
 
-  customFunction.getCatalogsCallback = function (res) {
-    (res && res.objects && res.objects.length) ? customFunction.catalogs = res.objects : false;
-    // var fun = eval("(" + res.requestID + ")");
-  this.buildHTML();
-  }
 
   customFunction.handleAction = function (item) {
     var deepLink = item.deepLink.replace(/\"/g, '%22');
