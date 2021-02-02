@@ -13,8 +13,8 @@ customFunction.getCatalogs = function () {
 
   customFunction.getCatalogsCallback = function (res) {
     (res && res.objects && res.objects.length) ? customFunction.catalogs = res.objects : false;
-    var fun = eval("(" + res.requestID + ")");
-  fun.buildHTML();
+    // var fun = eval("(" + res.requestID + ")");
+  this.buildHTML();
   }
 
   customFunction.handleAction = function (item) {
