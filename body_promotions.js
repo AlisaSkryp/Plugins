@@ -1,5 +1,5 @@
 
-  customFunction.drawPromotions = function (Promotions) {
+  customFunction.drawPromotions = function (id, Promotions) {
     let str = "";
     for (const [idx1, value] of Promotions.entries()) {
       str += `
@@ -10,6 +10,7 @@
       </div>
   </a>`;
     }
-    if(document.getElementById("promotions"))
-    document.getElementById("promotions").innerHTML = str;
+    if (document.getElementById(id))
+    document.getElementById(id).innerHTML = str;
+  document.getElementById(id).classList.add("promotions")  
   };
