@@ -4,6 +4,20 @@ customFunction.catalogs;
 customFunction.transactionName = "Eyewear Sales Order"
 customFunction.catalogName = 'Eyewear & Sunglasses'
 
+customFunction.getCatalogs = function (x) {
+  console.log(x)
+  pepperi.api.catalogs.search({
+    fields: ["UUID", "ExternalID", "Description", "ID"],
+    responseCallback: "customFunction.getCatalogsCallback",
+    requestID: x
+  }); 
+} 
+customFunction.getCatalogsCallback = function (res) {
+  console.log("get catalog res", res);
+  (res && res.objects && res.objects.length) ? customFunction.catalogs = res.objects: false;
+  var fun = eval("(" + res.requestID + ")");
+  fun.buildHTML();
+}
 
 
   customFunction.handleAction = function (item) {
@@ -112,7 +126,7 @@ customFunction.catalogName = 'Eyewear & Sunglasses'
     });
 
     $('#myDropdown').on('focusout', function () {
-      $('#myDropdown').removeClass('show');
+      $('#myDropdown').removeClass('show ');
     });
 
     // $('#sidebar-sm').on('focusout', function () {
