@@ -2,7 +2,7 @@ if (!customFunction)
   var customFunction = {}
 customFunction.catalogs;
 customFunction.transactionName = "Eyewear Sales Order"
-customFunction.catalogName = Catalog
+customFunction.catalogName = 'Eyewear & Sunglasses'
 
 
 
