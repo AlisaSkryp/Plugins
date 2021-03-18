@@ -931,9 +931,11 @@ button {
 
 .promo__title {
   font-weight: 600;
-  font-size: 1.5rem;
-  color: white;
+  font-size: 1rem;
+  color: black;
   text-transform: capitalize;
+  border: 2px solid black;
+  background-color: white;
 }
 
 .promo__content {
